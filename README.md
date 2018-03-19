@@ -1,6 +1,8 @@
 # spatial-pyramid-pooling
 Spatial Pyramid Pooling layer implemented in NumPy and Tensorflow
 
+For the original SPP paper: arXiv:1406.4729 [cs.CV]
+
 * **spp_layer.py** includes functions:
   * ***np_spatial_pyramid_pooling(input_feature_maps, pyramid_levels, dtype)***
     * **input_feature_maps** : <br /> Numpy array of 4 dims, following NCHW format.
