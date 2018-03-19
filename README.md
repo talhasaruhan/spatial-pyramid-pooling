@@ -6,7 +6,7 @@ For the original SPP paper: arXiv:1406.4729 [cs.CV]
 * **spp_layer.py** includes functions:
   * ***np_spatial_pyramid_pooling(input_feature_maps, pyramid_levels, dtype)***
     * **input_feature_maps** : <br /> Numpy array of 4 dims, following NCHW format.
-    * **pyramid_levels** : <br /> Numpy array of 2 dims. <br /> Rows represent each level of the pyramid. First column represent number of bins along H dimension (n_H) and the second column represent number of bins along H dimension (n_W).
+    * **pyramid_levels** : <br /> Numpy array of 2 dims. <br /> Rows represent each level of the pyramid. First column represent number of bins along H dimension (n_H) and the second column represent number of bins along W dimension (n_W).
     * **dtype** <br/> Data type of the numpy array (i.e. np.int32). This has to be set correctly as this function uses "stride tricks" and rely on memory continuity.
   * ***tf_spatial_pyramid_pooling(input_feature_maps, pyramid_levels, dtype)***
     * **input_feature_maps**: <br/> Tensor of 4 dims, following NCHW format.
@@ -32,6 +32,7 @@ print(a)
 
 Generated array:
 ```
+(1, 3, 6, 5)
 [[[[70 40 51 25 50]
    [78 20 94 43 46]
    [22 69 97 72 83]
@@ -75,7 +76,6 @@ with tf.Session() as sess:
 	tf_a = tf.constant(a)
 	tf_spt = tf.constant(spt)
 	y = tf_spatial_pyramid_pooling(tf_a, tf_spt, tf.int32)
-	print("hey")
 	tf_fxd_repr = sess.run(y)
 	print(tf_fxd_repr.shape)
 	print(tf_fxd_repr)
